@@ -34,7 +34,7 @@ with kolom1:
     
     df_data1 = df_data[df_data['team'] == selected_tim1]
     selected_pemain1 = st.selectbox(
-        'Select player1?',
+        'Pilih pemain 1',
          df_data1['name'].unique()    
         )
     st.write(f"Pilihan anda: {selected_tim1} - {selected_pemain1}")
@@ -52,7 +52,7 @@ with kolom2:
     
     df_data2 = df_data[df_data['team'] == selected_tim2]
     selected_pemain2 = st.selectbox(
-        'Select player2?',
+        'Pilih pemain 2',
          df_data2['name'].unique()   
         )
     st.write(f"Pilihan anda: {selected_tim2} - {selected_pemain2}")
