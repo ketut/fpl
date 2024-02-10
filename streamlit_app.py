@@ -1,13 +1,16 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import requests 
+
 
 st.title('EfPeeL - Likelihood FC')
 
 df_data = pd.read_csv('merged_gw_23.csv')
-
-
 nama_tim = df_data['team'].unique()
+
+liga = requests.get('https://fantasy.premierleague.com/api/leagues-classic/2381820/standings/').json()
+st.title(len(liga))
 
 kolom1, kolom2 = st.columns(2)
 with kolom1:
