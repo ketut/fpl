@@ -31,13 +31,13 @@ with kolom1:
         'Pilih tim 1',
         nama_tim
     )
-    st.write('You selected:', selected_pemain1)
+    
     df_data1 = df_data[df_data['team'] == selected_tim1]
     selected_pemain1 = st.selectbox(
         'Select player1?',
          df_data1['name'].unique()    
         )
-
+    st.write(f"Pilihan anda: {selected_tim1} - {selected_pemain1}")
 
     player_data1 = df_data1[df_data1['name'] == selected_pemain1]
     st.line_chart(
@@ -50,12 +50,12 @@ with kolom2:
         nama_tim
     )
     
-    st.write('You selected:', selected_pemain2)
     df_data2 = df_data[df_data['team'] == selected_tim2]
     selected_pemain2 = st.selectbox(
         'Select player2?',
          df_data2['name'].unique()   
         )
+    st.write(f"Pilihan anda: {selected_tim2} - {selected_pemain2}")
     player_data2 = df_data2[df_data2['name'] == selected_pemain2]
     st.line_chart(
     player_data2, x='GW', y='total_points', color=["#0000FF"]
