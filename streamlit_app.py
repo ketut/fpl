@@ -11,7 +11,7 @@ nama_tim = df_data['team'].unique()
 
 liga = requests.get('https://fantasy.premierleague.com/api/leagues-classic/2381820/standings/').json()
 df_liga = pd.DataFrame(liga['standings']['results'])
-st.table(df_liga)
+st.table(df_liga[['entry_name','rank','last_rank''total']])
 
 
 kolom1, kolom2 = st.columns(2)
