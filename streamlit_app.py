@@ -23,27 +23,38 @@ pemainku = [
     'Pedro Porro',
     'Anthony Gordon'
 ]
+nama_tim = df_data['team'].unique()
 
 kolom1, kolom2 = st.columns(2)
 with kolom1:
+    selected_tim1 = st.selectbox(
+        'Pilih tim 1',
+        nama_tim
+    )
     selected_pemain1 = st.selectbox(
         'Select player1?',
          pemainku    
         )
 
     st.write('You selected:', selected_pemain1)
-    player_data1 = df_data[df_data['name'] == selected_pemain1]
+    df_data1 = df_data[df_data['team'] == selected_tim1]
+    player_data1 = df_data1[df_data1['name'] == selected_pemain1]
     st.line_chart(
-    player_data1, x='GW', y=['total_points',100], color=["#FF0000"]  # Optional
+    player_data1, x='GW', y='total_points', color=["#FF0000"]  # Optional
     )
 
 with kolom2:
+    selected_tim2 = st.selectbox(
+        'Pilih tim 2',
+        nama_tim
+    )
     selected_pemain2 = st.selectbox(
         'Select player2?',
          pemainku    
         )
     st.write('You selected:', selected_pemain2)
-    player_data2 = df_data[df_data['name'] == selected_pemain2]
+    df_data2 = df_data[df_data['team'] == selected_tim2]
+    player_data2 = df_data2[df_data2['name'] == selected_pemain2]
     st.line_chart(
-    player_data2, x='GW', y=['total_points',100], color=["#0000FF"]
+    player_data2, x='GW', y='total_points', color=["#0000FF"]
     )
