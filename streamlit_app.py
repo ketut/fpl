@@ -24,7 +24,7 @@ pemainku = [
     'Anthony Gordon'
 ]
 
-kolom1, kolom2 = st.column(2)
+kolom1, kolom2 = st.columns(2)
 with kolom1:
     selected_pemain1 = st.selectbox(
         'Select player1?',
