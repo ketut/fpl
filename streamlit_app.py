@@ -24,27 +24,26 @@ pemainku = [
     'Anthony Gordon'
 ]
 
-selected_pemain1 = st.selectbox(
-    'Select player1?',
-     pemainku    
+kolom1, kolom2 = st.column(2)
+with kolom1:
+    selected_pemain1 = st.selectbox(
+        'Select player1?',
+         pemainku    
+        )
+
+    st.write('You selected:', selected_pemain1)
+    player_data1 = df_data[df_data['name'] == selected_pemain1]
+    st.line_chart(
+    player_data1, x='GW', y='total_points', color=["#FF0000"]  # Optional
     )
 
-st.write('You selected:', selected_pemain1)
-
-selected_pemain2 = st.selectbox(
-    'Select player2?',
-     pemainku    
+with kolom2:
+    selected_pemain2 = st.selectbox(
+        'Select player2?',
+         pemainku    
+        )
+    st.write('You selected:', selected_pemain2)
+    player_data2 = df_data[df_data['name'] == selected_pemain2]
+    st.line_chart(
+    player_data2, x='GW', y='total_points', color=["#0000FF"]  # Optional
     )
-st.write('You selected:', selected_pemain2)
-
-player_data1 = df_data[df_data['name'] == selected_pemain1]
-player_data2 = df_data[df_data['name'] == selected_pemain2]
-gameweek = player_data1['GW']
-
-st.line_chart(
-   player_data1, x='GW', y='total_points', color=["#FF0000"]  # Optional
-)
-
-st.line_chart(
-   player_data2, x='GW', y='total_points', color=["#0000FF"]  # Optional
-)
