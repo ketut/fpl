@@ -23,11 +23,11 @@ pemainku = [
     'Anthony Gordon'
 ]
 
-option = st.selectbox(
+selected_pemain = st.selectbox(
     'Select player1?',
-    [pemain: pemain in pemainku]    
+     pemainku    
     )
 
-st.write('You selected:', option)
+st.write('You selected:', selected_pemain)
 
 
