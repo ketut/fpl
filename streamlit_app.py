@@ -40,6 +40,11 @@ st.write('You selected:', selected_pemain2)
 player_data1 = df_data[df_data['name'] == selected_pemain1]
 player_data2 = df_data[df_data['name'] == selected_pemain2]
 gameweek = player_data1['GW']
+
 st.line_chart(
-   chart_data, x=gameweek, y=[player_data1['total_points'], player_data2['total_points']], color=["#FF0000", "#0000FF"]  # Optional
+   player_data1, x='GW', y='total_points', color=["#FF0000"]  # Optional
+)
+
+st.line_chart(
+   player_data2, x='GW', y='total_points', color=["#0000FF"]  # Optional
 )
