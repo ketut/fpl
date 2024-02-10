@@ -34,7 +34,7 @@ with kolom1:
     st.write('You selected:', selected_pemain1)
     player_data1 = df_data[df_data['name'] == selected_pemain1]
     st.line_chart(
-    player_data1, x='GW', y='total_points',height=50, color=["#FF0000"]  # Optional
+    player_data1, x='GW', y=['total_points',100], color=["#FF0000"]  # Optional
     )
 
 with kolom2:
@@ -45,5 +45,5 @@ with kolom2:
     st.write('You selected:', selected_pemain2)
     player_data2 = df_data[df_data['name'] == selected_pemain2]
     st.line_chart(
-    player_data2, x='GW', y='total_points', height=50, color=["#0000FF"]
+    player_data2, x='GW', y=['total_points',100], color=["#0000FF"]
     )
