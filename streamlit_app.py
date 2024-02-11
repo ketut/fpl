@@ -33,6 +33,12 @@ st.table(df_liga_bps5100[['entry_name','rank','last_rank','total']])
 
 st.bar_chart(df_liga_bps5100, x='entry_name', y='total')
 
+selected_tim_bps5100 = st.selectbox(
+    'Pilih Tim',
+    [x['entry_name'] for x in liga['standings']['results']]
+)
+
+
 kolom1, kolom2 = st.columns(2)
 
 with kolom1:
