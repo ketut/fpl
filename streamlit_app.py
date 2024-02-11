@@ -37,6 +37,24 @@ selected_tim_bps5100 = st.selectbox(
     'Pilih Tim',
     [x['entry_name'] for x in liga['standings']['results']]
 )
+selected_gameweek = st.selectbox(
+    'Pilih gameweek',
+    [g for g in range(23,39)]
+)
+
+for baris in liga['standings']['results']:
+    if baris['entry_nama'] == selected_tim_bps5100:
+        id_tim = baris['id']
+        team = requests.get(f"https://fantasy.premierleague.com/api/entry/{id_tim}/event/{gameweek_selected}/picks/").json()
+        if team['detail'] == "Not found.":
+            st.warning("Pilih gameweek yang sesuai")
+        else:
+            players = [x['element'] for x in team['picks']]
+            pemain = []
+            for id_pemain in players:
+                pemain.append(list(players_df[players_df['id'] == id_pemain]['web_name'])[0])
+            st.subheader(f"Squad {selected_tim_bps5100} >> {pemain}")
+
 
 
 kolom1, kolom2 = st.columns(2)
