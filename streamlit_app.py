@@ -55,7 +55,7 @@ for baris in liga_bps5100['standings']['results']:
             pemain = []
             for id_pemain in players:
                 pemain.append(list(players_df[players_df['id'] == id_pemain]['web_name'])[0])
-            st.success(f"Squad {selected_tim_bps5100} \n {pemain}")
+            st.success(f"Squad {selected_tim_bps5100} >> {', '.join(pemain)}")
             
             
         # try:
