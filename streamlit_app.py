@@ -21,6 +21,7 @@ df_liga = pd.DataFrame(liga['standings']['results'])
 st.subheader(liga['league']['name'], divider='grey')
 st.subheader(f"Gameweek ke-{gameweek}")
 st.table(df_liga[['entry_name','rank','last_rank','total']])
+st.bar_chart(df_liga, x='entry_name', y='total')
 
 liga_bps5100 = requests.get('https://fantasy.premierleague.com/api/leagues-classic/2403108/standings/').json()
 df_liga_bps5100 = pd.DataFrame(liga_bps5100['standings']['results'])
