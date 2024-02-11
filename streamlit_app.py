@@ -33,6 +33,7 @@ st.table(df_liga_bps5100[['entry_name','rank','last_rank','total']])
 
 st.bar_chart(df_liga_bps5100, x='entry_name', y='total')
 
+st.subheader("Intip Tim Lawan", divider="grey")
 selected_tim_bps5100 = st.selectbox(
     'Pilih Tim',
     [x['entry_name'] for x in liga_bps5100['standings']['results']]
@@ -74,7 +75,7 @@ for baris in liga_bps5100['standings']['results']:
         #         pemain.append(list(players_df[players_df['id'] == id_pemain]['web_name'])[0])
         #     st.success(f"Squad {selected_tim_bps5100} >> {pemain}")
 
-
+st.subheader("Komparasi pemain", divider="grey")
 kolom1, kolom2 = st.columns(2)
 
 with kolom1:
