@@ -42,7 +42,7 @@ selected_gameweek = st.selectbox(
     [g for g in range(23,39)]
 )
 
-for baris in liga['standings']['results']:
+for baris in liga_bps5100['standings']['results']:
     if baris['entry_nama'] == selected_tim_bps5100:
         id_tim = baris['id']
         team = requests.get(f"https://fantasy.premierleague.com/api/entry/{id_tim}/event/{gameweek_selected}/picks/").json()
