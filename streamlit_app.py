@@ -20,7 +20,7 @@ liga = requests.get('https://fantasy.premierleague.com/api/leagues-classic/23818
 df_liga = pd.DataFrame(liga['standings']['results'])
 # df_liga = df_liga.sort_values(by='total', ascending=False)
 st.subheader(liga['league']['name'], divider='grey')
-st.subheader(f"Gameweek ke-{gameweek}")
+# st.subheader(f"Gameweek ke-{gameweek}")
 st.table(df_liga[['entry_name','rank','last_rank','total']])
 st.bar_chart(df_liga, x='entry_name', y='total')
 
@@ -28,7 +28,7 @@ liga_bps5100 = requests.get('https://fantasy.premierleague.com/api/leagues-class
 df_liga_bps5100 = pd.DataFrame(liga_bps5100['standings']['results'])
 # df_liga_bps5100 = df_liga_bps5100.sort_values(by='total', ascending=False)
 st.subheader(liga_bps5100['league']['name'], divider='grey')
-st.subheader(f"Gameweek ke-{gameweek}")
+# st.subheader(f"Gameweek ke-{gameweek}")
 st.table(df_liga_bps5100[['entry_name','rank','last_rank','total']])
 
 st.bar_chart(df_liga_bps5100, x='entry_name', y='total')
