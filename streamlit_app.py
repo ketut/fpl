@@ -42,7 +42,7 @@ with kolom1:
     )
     
     df_data1 = df_data[df_data['team'] == selected_tim1]
-    df_data1 = df_data1.sort_values(by=df_data1['total_points'].mean(), ascending=False)
+    # df_data1 = df_data1.sort_values(by=, ascending=False)
     selected_pemain1 = st.selectbox(
         'Pilih pemain 1',
          df_data1['name'].unique()    
