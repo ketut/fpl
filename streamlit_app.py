@@ -9,10 +9,17 @@ st.title('EfPeeL - Likelihood FC')
 df_data = pd.read_csv('merged_gw_23.csv')
 df_data = df_data.sort_values(by='total_points',ascending=False)
 nama_tim = df_data['team'].unique()
+players =  get('https://fantasy.premierleague.com/api/bootstrap-static/')
+players_df = pd.DataFrame(players['elements'])
+teams_df = pd.DataFrame(players['teams'])
+fixtures_df = pd.DataFrame(players['events'])
+gameweek =  fixtures_df.iloc[0].id
+
 
 liga = requests.get('https://fantasy.premierleague.com/api/leagues-classic/2381820/standings/').json()
 df_liga = pd.DataFrame(liga['standings']['results'])
 st.subheader(liga['league']['name'], divider='grey')
+st.subheader(f"Gameweek ke-{gameweek}")
 st.table(df_liga[['entry_name','rank','last_rank','total']])
 
 
