@@ -35,7 +35,7 @@ st.bar_chart(df_liga_bps5100, x='entry_name', y='total')
 
 selected_tim_bps5100 = st.selectbox(
     'Pilih Tim',
-    [x['entry_name'] for x in liga['standings']['results']]
+    [x['entry_name'] for x in liga_bps5100['standings']['results']]
 )
 selected_gameweek = st.selectbox(
     'Pilih gameweek',
