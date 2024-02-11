@@ -55,9 +55,8 @@ for baris in liga_bps5100['standings']['results']:
             pemain = []
             for id_pemain in players:
                 pemain.append(list(players_df[players_df['id'] == id_pemain]['web_name'])[0])
-            st.success(f"Squad {selected_tim_bps5100}")
-            for baris in pemain:
-                st.code(baris)   
+            st.success(f"Squad {selected_tim_bps5100} {*pemain, sep=','}")
+            
             
         # try:
         #     if team['detail']:
