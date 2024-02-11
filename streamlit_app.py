@@ -47,7 +47,7 @@ for baris in liga_bps5100['standings']['results']:
         id_tim = daftar_tim[selected_tim_bps5100]
         st.success(id_tim)
         team = requests.get(f"https://fantasy.premierleague.com/api/entry/{id_tim}/event/{selected_gameweek}/picks/").json()
-        if team['detail'] == "Not found.":
+        if team['detail']:
             st.warning("Pilih gameweek yang sesuai")
         else:
             players = [x['element'] for x in team['picks']]
