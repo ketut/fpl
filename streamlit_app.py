@@ -22,8 +22,15 @@ st.subheader(liga['league']['name'], divider='grey')
 st.subheader(f"Gameweek ke-{gameweek}")
 st.table(df_liga[['entry_name','rank','last_rank','total']])
 
+liga_bps5100 = requests.get('https://fantasy.premierleague.com/api/leagues-classic/2381820/standings/').json()
+df_liga_bps5100 = pd.DataFrame(liga_bps5100['standings']['results'])
+st.subheader(liga_bps5100['league']['name'], divider='grey')
+st.subheader(f"Gameweek ke-{gameweek}")
+st.table(df_liga_bps5100[['entry_name','rank','last_rank','total']])
+
 
 kolom1, kolom2 = st.columns(2)
+
 with kolom1:
     selected_tim1 = st.selectbox(
         'Pilih tim 1',
