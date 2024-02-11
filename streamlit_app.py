@@ -14,7 +14,7 @@ players_df = pd.DataFrame(players['elements'])
 teams_df = pd.DataFrame(players['teams'])
 fixtures_df = pd.DataFrame(players['events'])
 gameweek =  fixtures_df.iloc[0].id
-
+daftar_tim = {'Lorosae Familia' : 10647937,'JPL11' : 10639843,'The Kang Squad' : 10498059,'Pearson FC' : 10640142,'Shinryuji Naga' : 10647775,'oxxxa team' : 10647999,'Raurus' : 10636098,'Kang Jurus' : 10512926,'Lethimcook' : 10636038,'Kang Fasih' : 10537732,'Mas Bro FC' : 10636210,'Bukit Kangin FC' : 10636233,'Persibu Buleleng' : 10636113,'Ilmu Padi FC' : 10647932,'Germa Team' : 10639504,'CukJitNe Bros' : 10636154,'Haus Gol' : 10648262,'Mengkeb United' : 10537734,'Level Up' : 10639569,'Mega' : 10537875,'Abang Cilok' : 10636052,'Sakit Gede' : 10648189,'Foodball �' : 10636376,'Anbu FC' : 10647979,'Sembung' : 10564238,'Likelihood FC' : 10537782}
 
 liga = requests.get('https://fantasy.premierleague.com/api/leagues-classic/2381820/standings/').json()
 df_liga = pd.DataFrame(liga['standings']['results'])
@@ -44,7 +44,7 @@ selected_gameweek = st.selectbox(
 
 for baris in liga_bps5100['standings']['results']:
     if baris['entry_name'] == selected_tim_bps5100:
-        id_tim = baris['entry']
+        id_tim = daftar_tim[selected_tim_bps5100]
         st.success(id_tim)
         team = requests.get(f"https://fantasy.premierleague.com/api/entry/{id_tim}/event/{selected_gameweek}/picks/").json()
         if team['detail'] == "Not found.":
