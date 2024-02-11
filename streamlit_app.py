@@ -48,21 +48,29 @@ for baris in liga_bps5100['standings']['results']:
         st.success(id_tim)
         team = requests.get(f"https://fantasy.premierleague.com/api/entry/{id_tim}/event/{selected_gameweek}/picks/").json()
         st.warning(len(team))
-        try:
-            if team['detail']:
-                st.warning("Pilih gameweek yang sesuai")
-            else: 
-                players = [x['element'] for x in team['picks']]
-                pemain = []
-                for id_pemain in players:
-                    pemain.append(list(players_df[players_df['id'] == id_pemain]['web_name'])[0])
-                st.success(f"Squad {selected_tim_bps5100} >> {pemain}")
-        except:
+        if len(team) == 1:
+            st.warning("Pilih gameweek yang sesuai")
+        else:
             players = [x['element'] for x in team['picks']]
             pemain = []
             for id_pemain in players:
                 pemain.append(list(players_df[players_df['id'] == id_pemain]['web_name'])[0])
             st.success(f"Squad {selected_tim_bps5100} >> {pemain}")
+        # try:
+        #     if team['detail']:
+        #         st.warning("Pilih gameweek yang sesuai")
+        #     else: 
+        #         players = [x['element'] for x in team['picks']]
+        #         pemain = []
+        #         for id_pemain in players:
+        #             pemain.append(list(players_df[players_df['id'] == id_pemain]['web_name'])[0])
+        #         st.success(f"Squad {selected_tim_bps5100} >> {pemain}")
+        # except:
+        #     players = [x['element'] for x in team['picks']]
+        #     pemain = []
+        #     for id_pemain in players:
+        #         pemain.append(list(players_df[players_df['id'] == id_pemain]['web_name'])[0])
+        #     st.success(f"Squad {selected_tim_bps5100} >> {pemain}")
 
 
 kolom1, kolom2 = st.columns(2)
