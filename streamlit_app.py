@@ -4,7 +4,8 @@ import numpy as np
 import requests 
 
 
-st.title('EfPeeL - Likelihood FC')
+st.title('EfPeeL - Likelihood FC', divider='grey')
+st.subheader('Ngutang kandik, nuduk sanshaw')
 
 df_data = pd.read_csv('merged_gw_24.csv')
 df_data = df_data.sort_values(by='total_points', ascending=False)
