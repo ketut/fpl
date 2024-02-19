@@ -92,7 +92,7 @@ with kolom1:
          df_data1['name'].unique()    
         )
     st.write(f"{selected_tim1} >> {selected_pemain1}")
-    st.write("Total points per gameweek - {selected_pemain1}")
+    st.write(f"Total points per gameweek - {selected_pemain1}")
     player_data1 = df_data1[df_data1['name'] == selected_pemain1]
     st.line_chart(
     player_data1, x='GW', y='total_points', color=["#FF0000"]  # Optional
@@ -114,7 +114,7 @@ with kolom2:
          df_data2['name'].unique()   
         )
     st.write(f"{selected_tim2} >> {selected_pemain2}")
-    st.write("Total points per gameweek - {selected_pemain2}")
+    st.write(f"Total points per gameweek - {selected_pemain2}")
     player_data2 = df_data2[df_data2['name'] == selected_pemain2]
     st.line_chart(
     player_data2, x='GW', y='total_points', color=["#0000FF"]
