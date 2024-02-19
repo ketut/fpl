@@ -6,7 +6,7 @@ import requests
 
 st.title('EfPeeL - Likelihood FC')
 
-df_data = pd.read_csv('merged_gw_23.csv')
+df_data = pd.read_csv('merged_gw_24.csv')
 df_data = df_data.sort_values(by='total_points', ascending=False)
 nama_tim = df_data['team'].unique()
 players =  requests.get('https://fantasy.premierleague.com/api/bootstrap-static/').json()
