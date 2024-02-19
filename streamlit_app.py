@@ -6,8 +6,8 @@ import requests
 
 st.title('EfPeeL - Likelihood FC')
 st.subheader('Ngutang kandik, nuduk sanshaw', divider='grey')
-
-df_data = pd.read_csv('merged_gw.csv')
+csv_file_url = 'https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2023-24/gws/merged_gw.csv'
+df_data = pd.read_csv(csv_file_url)
 df_data = df_data.sort_values(by='total_points', ascending=False)
 nama_tim = df_data['team'].unique()
 players =  requests.get('https://fantasy.premierleague.com/api/bootstrap-static/').json()
