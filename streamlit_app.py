@@ -5,7 +5,7 @@ import requests
 
 
 st.title('EfPeeL - Likelihood FC')
-st.subheader('Ngutang kandik, nuduk sanshaw', divider='grey')
+st.subheader('Strategi: ngutang kandik, nuduk chainshaw', divider='grey')
 csv_file_url = 'https://raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2023-24/gws/merged_gw.csv'
 df_data = pd.read_csv(csv_file_url)
 df_data = df_data.sort_values(by='total_points', ascending=False)
